@@ -1,0 +1,100 @@
+<!-- <a href="{% url 'about' %}"><input type="submit" value="About"></a><br>
+<br>
+<form action="{% url 'count' %}">
+    <textarea cols="40" rows="5" name="fulltext"></textarea>
+       <input type="submit" value="Count"/>
+</form> -->
+
+
+{% block html %}
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Word Counter</title>
+     <style>
+         body{
+             box-sizing: border-box;
+         }
+         
+         *{
+             margin: 0;
+             padding: 0;
+         }
+
+         .header{
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             background-color: #333;
+             color: aliceblue;
+             height: 15vh;
+             font-size: 53px;
+         }
+
+         .nav{
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             background-color: silver;
+             height: 8vh;
+         }
+        
+
+        .links{
+            text-decoration: none;
+            display: inline;
+        }
+
+        .btn{
+            
+            list-style: none;
+            border: 1px solid rgb(209, 179, 179);
+            background-color: rgb(182, 241, 214);
+            margin: auto;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .btn:hover{
+            color: rgb(255, 255, 255);
+        }
+        #area{
+            margin-top: 1.5rem;
+        }
+
+        .text{
+            background-color: rgb(39, 58, 58);
+            height: 100vh;
+        }
+     </style>
+ </head>
+ <body>
+     <div class="header">
+        WORD COUNTER
+     </div>
+     <div class="nav">
+         <nav>
+             <ul>
+                 <li class="links"><a href="{% url 'About' %}"><input class="btn" type="submit" value="About"></a></li>
+                 <li class="links"><a href="{% url 'count' %}"><input class="btn" type="submit" value="Count"></a></li>
+                </ul>
+         </nav>
+         
+     </div>
+     <div class="text">
+        <form action="{% url 'count' %}">
+            <textarea id="area" cols="80" rows="15" name="fulltext"></textarea>
+            <div class="count">
+                <input type="submit" value="Count"/>
+
+            </div>   
+        </form> 
+        
+     </div>
+ </body>
+ </html>
+ {% endblock %}
